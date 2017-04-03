@@ -1,22 +1,14 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css"
-      href="{% static 'style.css' %}" />
-    <title>Treasuregram</title>
-</head>
-<body>
-    <h1>TreasureGram</h1>
+{% block content %}
     {% for treasure in treasures %}
-    <p>{{ treasure.name }}</p>
-    {% if treasure.value > 0 %}
-        <p>{{ treasure.value }}</p>
-    {% else %}
-        <p> Unknown </p>
-    {% endif %}
+    <a href = "/{{ treasure.id }}/" > <p>{{ treasure.name }}</p> </a>
     {% endfor %}
-</body>
-</html>
+    <h2>Add New Treasure</h2>
+    <form enctype="multipart/form-data" action="post_url/" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit" />
+    </form>
+{% endblock %}
+

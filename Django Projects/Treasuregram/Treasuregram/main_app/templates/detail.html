@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <p>{{ treasure.name }}</p>
+    <p>{{ treasure.value }}</p>
+    <p>{{ treasure.material }}</p>
+    <p>{{ treasure.location }}</p>
+    <img src="{{ treasure.image.url }}" >
+{% endblock %}
