@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <h1> {{ username }} </h1>
+    {% for treasure in treasures %}
+    <a href = "/{{ treasure.id }}/" > <p>{{ treasure.name }}</p> </a>
+    {% endfor %}
+{% endblock %}
+

@@ -2,7 +2,8 @@
 {% load staticfiles %}
 {% block content %}
     {% for treasure in treasures %}
-    <a href = "/{{ treasure.id }}/" > <p>{{ treasure.name }}</p> </a>
+    <a href = "/user/{{ treasure.user.username }}/" > <p>{{ treasure.name }} By {{ treasure.user.username }}</p> </a>
+    <a href = "/{{ treasure.id }}/" > <p>Details for {{ treasure.name }} </p> </a>
     {% endfor %}
     <h2>Add New Treasure</h2>
     <form enctype="multipart/form-data" action="post_url/" method="post">
